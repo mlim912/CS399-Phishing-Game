@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width="1000" height="700"></canvas>
+      <canvas id="unity-canvas" width="2048" height="1152"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -23,6 +23,39 @@
         <div id="unity-build-title">main</div>
       </div>
     </div>
+
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-functions.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+
+    <script>
+      // Import the functions you need from the SDKs you need
+      //import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase.js";
+      //import { getDatabase } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyAXvupT3S2UbVtP9nG3srnOPxc76rLm2Cg",
+        authDomain: "cs399project.firebaseapp.com",
+        databaseURL: "https://cs399project-default-rtdb.firebaseio.com",
+        projectId: "cs399project",
+        storageBucket: "cs399project.appspot.com",
+        messagingSenderId: "543060543946",
+        appId: "1:543060543946:web:1cb5ff4bf34c4aacffe733",
+        measurementId: "G-XBMZK48BF6",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
     <script>
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
@@ -85,8 +118,8 @@
         config.devicePixelRatio = 1;
         unityShowBanner("WebGL builds are not supported on mobile devices.");
       } else {
-        canvas.style.width = "1000px";
-        canvas.style.height = "700px";
+        canvas.style.width = "1400px";
+        canvas.style.height = "787.5px";
       }
       loadingBar.style.display = "block";
 
@@ -96,7 +129,8 @@
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
         })
-          .then((unityInstance) => {
+          .then((ui) => {
+            window.unityInstance = ui;
             loadingBar.style.display = "none";
             fullscreenButton.onclick = () => {
               unityInstance.SetFullscreen(1);

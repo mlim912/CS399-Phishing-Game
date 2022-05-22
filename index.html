@@ -3,9 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Unity WebGL Player | main</title>
+    <title>WIP: Gone Phishing</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico" />
     <link rel="stylesheet" href="TemplateData/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@500&family=VT323&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -18,9 +24,22 @@
       </div>
       <div id="unity-warning"></div>
       <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">main</div>
+        <div id="unity-build-title">Work-In-Progress: Gone Phishing</div>
+      </div>
+      <div
+        style="
+          font-family: 'Nunito', sans-serif;
+          font-family: 'VT323', monospace;
+        "
+      >
+        <h1>How to get started:</h1>
+        <ol>
+          <li>Register or Login if you already have an account.</li>
+          <li>Click on the screen to zoom in</li>
+          <li>Click on the Mail icon at the button to open your email</li>
+          <li>Open any email in your inbox and get started!</li>
+        </ol>
       </div>
     </div>
 
@@ -118,8 +137,8 @@
         config.devicePixelRatio = 1;
         unityShowBanner("WebGL builds are not supported on mobile devices.");
       } else {
-        canvas.style.width = "1400px";
-        canvas.style.height = "787.5px";
+        canvas.style.width = "1120px";
+        canvas.style.height = "629.6px";
       }
       loadingBar.style.display = "block";
 
